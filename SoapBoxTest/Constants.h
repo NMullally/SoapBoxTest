@@ -7,9 +7,10 @@ namespace Constants
 	const char * const kInputCSVFile	= "../Data/data_points.csv";
 	const char * const kOutputCSVFile	= "../Data/output.csv";
 
-	const float kMaxStandardDeviationX = 0.0005f;
-	const float kMaxStandardDeviationY = 0.0005f;
+	const float kMaxStandardDeviationX = 0.001f;
+	const float kMaxStandardDeviationY = 0.001f;
 
-	// Will check two values before and after the current value.
 	const int kSampleSize = 2;
+	const int kMaxLoopAmount = 5;
+	const bool kShouldDoMuliplePasses = true;
 }
