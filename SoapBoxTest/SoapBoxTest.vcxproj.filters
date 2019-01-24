@@ -24,12 +24,18 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FilterData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SoapBoxTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CSVManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

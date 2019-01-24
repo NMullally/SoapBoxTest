@@ -153,10 +153,12 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="CSVManager.h" />
+    <ClInclude Include="FilterData.h" />
     <ClInclude Include="PointData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CSVManager.cpp" />
+    <ClCompile Include="FilterData.cpp" />
     <ClCompile Include="SoapBoxTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
