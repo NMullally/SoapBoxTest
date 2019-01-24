@@ -30,46 +30,64 @@ CSVManager::~CSVManager()
 	mInstance = nullptr;
 }
 
-void CSVManager::loadCSV(std::vector<PointData> & pointVec)
+bool CSVManager::loadCSV(std::vector<PointData> & pointVec)
 {
 	std::string tempStr;
 	PointData data = PointData();
 
 	std::ifstream csvFile(Constants::kInputCSVFile);
 
-	while (std::getline(csvFile, tempStr, ','))
+	if (csvFile.good())
 	{
-		data.latitude = std::stod(tempStr);
+		while (std::getline(csvFile, tempStr, ','))
+		{
+			data.latitude = std::stod(tempStr);
 
-		std::getline(csvFile, tempStr, ',');
-		data.longitude = std::stod(tempStr);
+			std::getline(csvFile, tempStr, ',');
+			data.longitude = std::stod(tempStr);
 
-		std::getline(csvFile, tempStr, '\n');
-		data.timeStamp = std::stod(tempStr);
+			std::getline(csvFile, tempStr, '\n');
+			data.timeStamp = std::stod(tempStr);
 
-		pointVec.push_back(data);
+			pointVec.push_back(data);
+		}
+		return true;
+	}
+	else
+	{
+		printf("Failed to open CSV File\n");
+		return false;
 	}
 }
 
-void CSVManager::writeCSV(std::vector<PointData> & pointVec)
+bool CSVManager::writeCSV(std::vector<PointData> & pointVec)
 {
 	std::ofstream outputFile;
 
 	outputFile.open(Constants::kOutputCSVFile);
 
-	for (PointData data : pointVec)
+	if (outputFile.is_open())
 	{
-		if (data.shouldExport == false)
+		for (PointData data : pointVec)
 		{
-			continue;
+			if (data.shouldExport == false)
+			{
+				continue;
+			}
+			outputFile << data.latitude << ",";
+			outputFile << data.longitude << ",";
+			outputFile << data.timeStamp << ",";
+			outputFile << data.standardDeviation << ",";
+
+			outputFile << "\n";
 		}
-		outputFile << data.latitude << ",";
-		outputFile << data.longitude << ",";
-		outputFile << data.timeStamp << ",";
-		outputFile << data.standardDeviation << ",";
 
-		outputFile << "\n";
+		outputFile.close();
+		return true;
 	}
-
-	outputFile.close();
+	else
+	{
+		printf("Unable to write to output file, ensure that it is not open!\n");
+		return false;
+	}
 }

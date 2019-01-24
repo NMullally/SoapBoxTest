@@ -5,7 +5,7 @@
 namespace Constants
 {
 	const char * const kInputCSVFile	= "../Data/data_points.csv";
-	const char * const kOutputCSVFile = "../Data/output.csv";
+	const char * const kOutputCSVFile	= "../Data/output.csv";
 
 	const float kMaxStandardDeviationX = 0.0005f;
 	const float kMaxStandardDeviationY = 0.0005f;

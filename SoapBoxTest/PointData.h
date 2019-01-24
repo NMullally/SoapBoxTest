@@ -13,5 +13,13 @@ struct PointData
 
 	// Could be useful to plot the SD for each point
 	double standardDeviation = 0.0;
+
+	PointData() {}
+	PointData(double lat, double longitude, double timeStamp)
+	{
+		this->latitude	= lat;
+		this->longitude = longitude;
+		this->timeStamp = timeStamp;
+	}
 };
 
