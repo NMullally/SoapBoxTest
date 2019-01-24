@@ -1,9 +1,9 @@
-#include "pch.h"
-#include "CSVManager.h"
-#include "Constants.h"
 #include <sstream>
 #include <string>
 #include <fstream>
+
+#include "CSVManager.h"
+#include "Constants.h"
 #include "PointData.h"
 
 CSVManager * CSVManager::mInstance = nullptr;

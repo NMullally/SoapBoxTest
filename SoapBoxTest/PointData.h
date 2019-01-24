@@ -5,13 +5,13 @@
 struct PointData
 {
 	// Flag on either the point should be exported or ignored.
-	bool shouldExport;
+	bool shouldExport = true;
 	// Doubles rather than floats for precision.
-	double latitude;
-	double longitude;
-	double timeStamp;
+	double latitude	 = 0.0;
+	double longitude = 0.0;
+	double timeStamp = 0.0;
 
 	// Could be useful to plot the SD for each point
-	double standardDeviation;
+	double standardDeviation = 0.0;
 };
 
